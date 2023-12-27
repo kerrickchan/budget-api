@@ -1,0 +1,34 @@
+[
+  {
+    "code": "Home",
+    "name": "Home"
+  },
+  {
+    "code": "Transportation",
+    "name": "Transportation"
+  },
+  {
+    "code": "Food",
+    "name": "Food"
+  },
+  {
+    "code": "Utility",
+    "name": "Utility"
+  },
+  {
+    "code": "Entertainment",
+    "name": "Entertainment"
+  },
+  {
+    "code": "Health",
+    "name": "Health"
+  },
+  {
+    "code": "Miscellaneous",
+    "name": "Miscellaneous"
+  },
+  {
+    "code": "Income",
+    "name": "Income"
+  }
+]

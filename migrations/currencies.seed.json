@@ -1,0 +1,12 @@
+[
+  {
+    "code": "USD",
+    "name": "United States Dollar",
+    "sign": "$"
+  },
+  {
+    "code": "HKD",
+    "name": "Hong Kong Dollar",
+    "sign": "$"
+  }
+]

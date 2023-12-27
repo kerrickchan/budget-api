@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package transaction;
+
+service TransactionService {
+  rpc Add (CreateTransaction) returns (Transaction) {}
+}
+
+message CreateTransaction {
+  int64 date = 1;
+  string description = 2;
+  oneof category {
+    string categoryId = 3;
+    string categoryCode = 4;
+  }
+  float amount = 5;
+  oneof currency {
+    string currencyId = 6;
+    string currencyCode = 7;
+  }
+}
+
+message Transaction {
+  string id = 1;
+  int64 date = 2;
+  string description = 3;
+  Category category = 4;
+  Currency currency = 5;
+}
+
+message Category {
+  string id = 1;
+  string code = 2;
+  string name = 3;
+}
+
+message Currency {
+  string id = 1;
+  string code = 2;
+  string name = 3;
+  string sign = 4;
+}
