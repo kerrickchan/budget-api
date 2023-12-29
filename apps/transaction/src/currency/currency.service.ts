@@ -1,26 +1,17 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model, Types, isObjectIdOrHexString } from 'mongoose';
+import { Inject, Injectable } from '@nestjs/common';
 import { Currency } from '../schemas';
+import { CurrencyRepository } from './currency.repository';
 
 @Injectable()
 export class CurrencyService {
-  @InjectModel(Currency.name)
-  private readonly currencyModel: Model<Currency>;
-
-  async find(): Promise<Currency[]> {
-    return this.currencyModel.find();
-  }
+  @Inject(CurrencyRepository)
+  private readonly currencyRepository: CurrencyRepository;
 
   async findById(id: string): Promise<Currency> {
-    if (isObjectIdOrHexString(id)) {
-      return this.currencyModel.findById(new Types.ObjectId(id));
-    }
-
-    return null;
+    return this.currencyRepository.readOne(id);
   }
 
   async findByCode(code: string): Promise<Currency> {
-    return this.currencyModel.findOne({ code });
+    return this.currencyRepository.readOneBy({ code });
   }
 }

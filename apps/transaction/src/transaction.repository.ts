@@ -2,13 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Transaction, TransactionDocument } from './schemas';
+import { CrudOneRepository } from '@libs/common/crud';
 
-/**
- * @deprecated fallback to use mongoose model directly.
- * Maybe useful for caching or other purposes.
- */
 @Injectable()
-export class TransactionRepository {
+export class TransactionRepository extends CrudOneRepository<Transaction> {
   @InjectModel(Transaction.name)
-  private readonly transactionsModel: Model<TransactionDocument>;
+  public readonly model: Model<TransactionDocument>;
 }
