@@ -2,11 +2,12 @@ import { CommonModule } from '@libs/common';
 import { setupMongooseModuleDb } from '@libs/setup';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MongooseDefinitions } from './schemas';
-import { TransactionController } from './transaction.controller';
-import { TransactionService } from './transaction.service';
 import { CategoryModule } from './category/category.module';
 import { CurrencyModule } from './currency/currency.module';
+import { MongooseDefinitions } from './schemas';
+import { TransactionController } from './transaction.controller';
+import { TransactionRepository } from './transaction.repository';
+import { TransactionService } from './transaction.service';
 
 @Module({
   imports: [
@@ -17,6 +18,6 @@ import { CurrencyModule } from './currency/currency.module';
     CurrencyModule,
   ],
   controllers: [TransactionController],
-  providers: [TransactionService],
+  providers: [TransactionService, TransactionRepository],
 })
 export class TransactionModule {}

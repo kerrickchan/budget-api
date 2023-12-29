@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Metadata, ServerUnaryCall } from '@grpc/grpc-js';
-import { CommonService } from '@libs/common';
+import { Long } from '@grpc/proto-loader';
+import { CommonService } from '@libs/common/common.service';
 import { Controller, Get, Inject } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import {
@@ -16,7 +17,6 @@ import { CurrencyService } from './currency/currency.service';
 import { CreateTransactionDto } from './dtos';
 import { TransactionDocument } from './schemas';
 import { TransactionService } from './transaction.service';
-import { Long } from '@grpc/proto-loader';
 
 @Controller()
 export class TransactionController {
